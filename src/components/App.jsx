@@ -12,6 +12,11 @@ export const App = () => {
 
   const options = { good, neutral, bad };
 
+  const countTotalFeedback = good + neutral + bad;
+  const countPositiveFeedbackPercentage = countTotalFeedback
+    ? Math.round((good / countTotalFeedback) * 100)
+    : 0;
+
   const handleFeedbackButton = option => {
     switch (option) {
       case 'good':
@@ -27,11 +32,6 @@ export const App = () => {
         break;
     }
   };
-
-  const countTotalFeedback = good + neutral + bad;
-  const countPositiveFeedbackPercentage = countTotalFeedback
-    ? Math.round((good / countTotalFeedback) * 100)
-    : 0;
 
   return (
     <SectionFeedback>
